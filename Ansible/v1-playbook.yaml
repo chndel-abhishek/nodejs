@@ -25,6 +25,7 @@
       apt:
          update_cache: yes
          name: nodejs
+         dest: /usr/bin
          state: present
  
     - name: Install Node.js Dependencies
