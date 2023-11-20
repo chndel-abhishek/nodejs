@@ -41,6 +41,4 @@
       command: "npm start"
       args:
         chdir: .
-      async: 600
-      poll: 0
       become: yes
