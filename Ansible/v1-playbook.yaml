@@ -37,11 +37,10 @@
         state: present
       become: yes
     - name: Install pm2
-      command: "pm2 start npm -- start"
+      command: "npm install pm2 -g"
       become: yes
-      
     - name: Start Node.js Application
-      command: "npm start"
+      command: "pm2 start npm -- start"
       args:
         chdir: ./Ansible/
       async: 600
