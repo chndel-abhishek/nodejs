@@ -36,7 +36,10 @@
         path: ./Ansible/
         state: present
       become: yes
- 
+    - name: Install pm2
+      command: "pm2 start npm -- start"
+      become: yes
+      
     - name: Start Node.js Application
       command: "npm start"
       args:
