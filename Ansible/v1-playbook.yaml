@@ -11,9 +11,9 @@
       become: yes
     - name: make a directory
       ansible.builtin.file:
-      path: /home/abhishekchandel1411/Ansible
-      state: directory
-      mode: '0755'
+        path: /home/abhishekchandel1411/Ansible
+        state: directory
+        mode: '0755'
     - name: Clone Git Repository
       git:
         repo: https://github.com/chndel-abhishek/nodejs.git
