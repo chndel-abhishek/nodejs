@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/chndel-abhishek/nodejs.git"
   },
+  "publishConfig": {
+    "registry": "http://34.168.168.114:8081/repository/npm-hosted/"
+  },
   "author": "Abhishek",
   "license": "ISC"
+
 }
