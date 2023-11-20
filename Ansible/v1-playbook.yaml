@@ -1,0 +1,41 @@
+---
+- name: Clone and Deploy Node.js App
+  hosts: private_users
+  become: yes
+ 
+  tasks:
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+      become: yes
+ 
+    - name: Clone Git Repository
+      git:
+        repo: https://github.com/chndel-abhishek/nodejs.git
+        dest: ./
+        version: main
+      become: yes
+ 
+    - name: Install Node.js and npm
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nodejs
+        - npm
+      become: yes
+ 
+    - name: Install Node.js Dependencies
+      npm:
+        path: .
+        state: present
+      become: yes
+ 
+    - name: Start Node.js Application
+      command: "npm start"
+      args:
+        chdir: .
+      async: 600
+      poll: 0
+      become: yes
