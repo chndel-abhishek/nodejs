@@ -33,12 +33,12 @@
  
     - name: Install Node.js Dependencies
       npm:
-        path: .
+        path: ./Ansible/
         state: present
       become: yes
  
     - name: Start Node.js Application
       command: "npm start"
       args:
-        chdir: .
+        chdir: ./Ansible/
       become: yes
