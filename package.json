@@ -1,0 +1,18 @@
+{
+  "name": "sample-app",
+  "version": "1.0.0",
+  "description": "A simple node js application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chndel-abhishek/nodejs.git"
+  },
+  "author": "Abhishek",
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "https://nexus.neuralcompany.team/repository/npm-hosted/"
+  }
+}
