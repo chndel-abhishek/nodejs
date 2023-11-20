@@ -41,4 +41,6 @@
       command: "npm start"
       args:
         chdir: ./Ansible/
+        async: 600
+        poll: 0
       become: yes
