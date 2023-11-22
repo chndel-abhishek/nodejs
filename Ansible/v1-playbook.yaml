@@ -18,10 +18,10 @@
       #   dest: /home/abhishekchandel1411/Ansible
       #   username: admin
       #   password: 'admin'
-    - name: Extract the file
-      ansible.builtin.unarchive:
-        src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
-        dest: /home/abhishekchandel1411/Ansible/
+    # - name: Extract the file
+    #   ansible.builtin.unarchive:
+    #     src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
+    #     dest: /home/abhishekchandel1411/Ansible/
  
     - name: "Install nodejs"
       apt:
