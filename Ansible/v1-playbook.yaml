@@ -11,7 +11,7 @@
         mode: '0755'
         
     - name: Clone Download
-      command: curl -u {{ NEXUS_AUTH }} -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
+      command: curl -u ${{ NEXUS_AUTH }} -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
       become: yes
       # ansible.builtin.get_url:
       #   url: http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz
