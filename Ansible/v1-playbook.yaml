@@ -4,22 +4,18 @@
   become: yes
  
   tasks:
-    - name: Install Git
-      apt:
-        name: git
-        state: present
-      become: yes
     - name: make a directory
       ansible.builtin.file:
         path: /home/abhishekchandel1411/Ansible
         state: directory
         mode: '0755'
-    - name: Clone Git Repository
-      git:
-        repo: https://github.com/chndel-abhishek/nodejs.git
-        dest: /home/abhishekchandel1411/Ansible
-        version: main
+    - name: Clone Download
+      command: curl -u admin:admin -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
       become: yes
+    - name: Extract the file
+      ansible.builtin.unarchive:
+        src: /var/lib/jenkins/workspace/Build_task_abhishek/sample-app-1.0.0.tgz
+        dest: /home/abhishekchandel1411/Ansible/
  
     - name: "Install nodejs"
       apt:
