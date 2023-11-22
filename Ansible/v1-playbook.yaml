@@ -11,11 +11,13 @@
         mode: '0755'
         
     - name: Clone Download
-      ansible.builtin.get_url:
-        url: http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz
-        dest: /home/abhishekchandel1411/Ansible
-        username: xs345-abhcha
-        password: 'Abhishek@29!!'
+      command: curl -u admin:admin -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
+      become: yes
+      # ansible.builtin.get_url:
+      #   url: http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz
+      #   dest: /home/abhishekchandel1411/Ansible
+      #   username: admin
+      #   password: 'admin'
     - name: Extract the file
       ansible.builtin.unarchive:
         src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
@@ -40,5 +42,5 @@
       command: "npm install pm2 -g"
       become: yes
     - name: Start Node.js Application
-      command: "pm2 start app.js"
+      command: "pm2 start npm -- start"
       become: yes
