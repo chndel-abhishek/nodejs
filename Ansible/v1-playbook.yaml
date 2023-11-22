@@ -42,6 +42,6 @@
       command: "npm install pm2 -g"
       become: yes
     - name: Start Node.js Application
-      path: ./Ansible
+       path: ./Ansible
       command: "pm2 start app.js"
       become: yes
