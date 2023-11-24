@@ -32,8 +32,7 @@
       ansible.builtin.copy:
         src: /home/xs345-abhcha/Desktop/GIT-LOcal/Ansible/mynodejs.service
         dest: /etc/systemd/system/
-        mode: '0644'
-        follow: yes 
+        mode: '0644' 
     - name: Enable service nodejs service
       ansible.builtin.systemd_service:
         name: mynodejs
