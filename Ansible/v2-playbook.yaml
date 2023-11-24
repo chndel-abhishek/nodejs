@@ -15,12 +15,12 @@
         state: directory
         mode: '0755'    
     - name: Download Artifacts
-      command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz"
+      command: curl -u admin:admin -o git-local-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
       become: yes
 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /home/abhishekchandel1411/sample-app-2.0.0.tgz
+        src: /home/abhishekchandel1411/git-local-2.0.0.tgz
         dest: /home/abhishekchandel1411/Ansible/V2
         remote_src: yes
       become: yes
