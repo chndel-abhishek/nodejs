@@ -13,15 +13,11 @@
     - name: Clone Download
       command: curl -u ${{ NEXUS_AUTH }} -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
       become: yes
-      # ansible.builtin.get_url:
-      #   url: http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz
-      #   dest: /home/abhishekchandel1411/Ansible
-      #   username: admin
-      #   password: 'admin'
-    # - name: Extract the file
-    #   ansible.builtin.unarchive:
-    #     src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
-    #     dest: /home/abhishekchandel1411/Ansible/
+
+    - name: Extract the file
+      ansible.builtin.unarchive:
+        src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
+        dest: /home/abhishekchandel1411/Ansible/
  
     - name: "Install nodejs"
       apt:
@@ -32,17 +28,26 @@
       apt:
          name: npm
          state: present
- 
-    - name: Install Node.js Dependencies
-      npm:
-        path: ./Ansible/
-        state: present
-      become: yes
-    - name: Install pm2
-      command: "npm install pm2 -g"
-      become: yes
-    - name: Start Node.js Application
-      command: "pm2 start app.js"
-      become: yes
-      args:
-        chdir: ./Ansible
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: /home/xs345-abhcha/Desktop/GIT-LOcal/Ansible/mynodejs.service
+        dest: /etc/systemd/system/
+        mode: '0644'
+        follow: yes 
+    - name: Enable service nodejs service
+      ansible.builtin.systemd_service:
+        name: mynodejs
+        enabled: true
+    - name: Make sure a service unit is running
+      ansible.builtin.systemd_service:
+        state: started
+        name: httpd
+
+    # - name: Install pm2
+    #   command: "npm install pm2 -g"
+    #   become: yes
+    # - name: Start Node.js Application
+    #   command: "pm2 start app.js"
+    #   become: yes
+    #   args:
+    #     chdir: ./Ansible
