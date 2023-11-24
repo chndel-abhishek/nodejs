@@ -1,6 +1,6 @@
 {
   "name": "sample-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple node js application",
   "main": "app.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/chndel-abhishek/nodejs.git"
   },
   "publishConfig": {
-    "registry": "http://34.168.168.114:8081/repository/npm-hosted/"
+    "registry": "http://34.83.246.129:8081/repository/npm-hosted/"
   },
   "author": "Abhishek",
   "license": "ISC"
