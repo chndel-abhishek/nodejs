@@ -11,7 +11,7 @@
         mode: '0755'
         
     - name: Clone Download
-      command: curl -u $admin:admin -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
+      command: curl -u admin:admin -o sample-app-1.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
       become: yes
 
     - name: Extract the file
