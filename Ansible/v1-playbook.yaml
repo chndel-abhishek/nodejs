@@ -1,6 +1,6 @@
 ---
 - name: Clone and Deploy Node.js App
-  hosts: private_users
+  hosts: all
   become: yes
  
   tasks:

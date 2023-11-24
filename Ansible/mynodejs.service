@@ -5,7 +5,7 @@ Description=My Little Server
 
 [Service]
 # Start Service and Examples
-ExecStart=/usr/bin/node /home/abhishekchandel1411/Ansible/app.js
+ExecStart=/usr/bin/node /home/abhishekchandel1411/Ansible/package/app.js
 # ExecStart=/usr/bin/sudo /usr/bin/node /home/myserver/server.js
 # ExecStart=/usr/local/bin/node /var/www/project/myserver/server.js
 
