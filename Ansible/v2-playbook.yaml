@@ -14,8 +14,8 @@
         path: /home/abhishekchandel1411/Ansible/V2
         state: directory
         mode: '0755'    
-    - name: Clone Download
-      command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz"
+    - name: Download Artifacts
+      command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz && echo 'pwd'>workin.txt"
       become: yes
 
     - name: Extract the file
