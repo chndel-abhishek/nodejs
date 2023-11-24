@@ -9,15 +9,19 @@
         path: /home/abhishekchandel1411/Ansible/
         state: directory
         mode: '0755'
-        
+    - name: make a directory
+      ansible.builtin.file:
+        path: /home/abhishekchandel1411/Ansible/V2
+        state: directory
+        mode: '0755'    
     - name: Clone Download
       command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz"
       become: yes
 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /var/lib/jenkins/workspace/Build_task_abhishek/sample-app-1.0.0.tgz
-        dest: /home/abhishekchandel1411/Ansible/
+        src: /var/lib/jenkins/workspace/Build_task_abhishek/sample-app-2.0.0.tgz
+        dest: /home/abhishekchandel1411/Ansible/V2
      
     - name: "Install nodejs"
       apt:
