@@ -15,14 +15,14 @@
         state: directory
         mode: '0755'    
     - name: Download Artifacts
-      command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz && echo 'pwd'>workin.txt"
-      become: yes
+      command: curl -u admin:admin -o sample-app-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/sample-app/-/sample-app-2.0.0.tgz"
+      mode: 0740
 
     - name: Extract the file
       ansible.builtin.unarchive:
         src: /home/abhishekchandel1411/sample-app-2.0.0.tgz
         dest: /home/abhishekchandel1411/Ansible/V2
-     
+      become: yes
     - name: "Install nodejs"
       apt:
          update_cache: yes
