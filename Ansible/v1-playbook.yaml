@@ -16,7 +16,7 @@
 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /home/abhishekchandel1411/Ansible/Ansible1/sample-app-1.0.0.tgz
+        src: /var/lib/jenkins/workspace/Build_task_abhishek/sample-app-1.0.0.tgz
         dest: /home/abhishekchandel1411/Ansible/Ansible1/
  
     - name: "Install nodejs"
