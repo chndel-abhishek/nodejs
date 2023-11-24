@@ -19,21 +19,28 @@
         src: /var/lib/jenkins/workspace/Build_task_abhishek/sample-app-1.0.0.tgz
         dest: /home/abhishekchandel1411/Ansible/
  
+    
     - name: "Install nodejs"
       apt:
          update_cache: yes
-         name: nodejs
+         name: 
+         - nodejs
+         - npm
+         - nginx
          state: present
+    
     - name: "Install npm"
       apt:
          name: npm
          state: present
+    
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
         src: /var/lib/jenkins/workspace/Build_task_abhishek/Ansible/mynodejs.service
         dest: /etc/systemd/system/
         mode: '0644'
         follow: yes 
+    
     - name: Enable service nodejs service
       command: "systemctl enable mynodejs"
       become: yes
