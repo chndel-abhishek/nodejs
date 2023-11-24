@@ -1,0 +1,21 @@
+[Unit]
+Description=My Little Server
+# Documentation=https://
+# Author: Natan Cabral
+
+[Service]
+# Start Service and Examples
+ExecStart=/usr/bin/node /home/abhishekchandel1411/Ansible/package/app.js
+RestartSec=10
+Restart=always
+
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nodejs-server
+
+# Variables
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
