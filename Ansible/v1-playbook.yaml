@@ -35,13 +35,12 @@
         mode: '0644'
         follow: yes 
     - name: Enable service nodejs service
-      ansible.builtin.systemd_service:
-        name: mynodejs
-        enabled: true
+      command: "systemctl enable mynodejs"
+      become: yes
+
     - name: Make sure a service unit is running
-      ansible.builtin.systemd_service:
-        state: started
-        name: mynodejs
+      command: "systemctl start mynodejs"
+      
 
     # - name: Install pm2
     #   command: "npm install pm2 -g"
