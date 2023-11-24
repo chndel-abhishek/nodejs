@@ -6,18 +6,18 @@
   tasks:
     - name: make a directory
       ansible.builtin.file:
-        path: /home/abhishekchandel1411/Ansible
+        path: /home/abhishekchandel1411/Ansible/Ansibel1
         state: directory
         mode: '0755'
         
-    # - name: Clone Download
-    #   command: curl -u $admin:admin -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
-    #   become: yes
+    - name: Clone Download
+      command: curl -u $admin:admin -o sample-app-1.0.0.tgz "http://34.145.73.246:8081/repository/npm-hosted/sample-app/-/sample-app-1.0.0.tgz"
+      become: yes
 
     - name: Extract the file
       ansible.builtin.unarchive:
-        src: /home/abhishekchandel1411/Ansible/sample-app-1.0.0.tgz
-        dest: /home/abhishekchandel1411/Ansible/
+        src: /home/abhishekchandel1411/Ansible/Ansible1/sample-app-1.0.0.tgz
+        dest: /home/abhishekchandel1411/Ansible/Ansible1/
  
     - name: "Install nodejs"
       apt:
