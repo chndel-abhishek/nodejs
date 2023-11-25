@@ -45,4 +45,4 @@
       become: yes
 
     - name: Make sure a service unit is running
-      command: "systemctl start mynodejs"
+      command: "systemctl restart mynodejs"
