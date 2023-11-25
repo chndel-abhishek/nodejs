@@ -14,9 +14,9 @@
         path: /home/abhishekchandel1411/Ansible/V2
         state: directory
         mode: '0755'    
-    - name: Download Artifacts
-      command: curl -u admin:admin -o git-local-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
-      become: yes
+    # - name: Download Artifacts
+    #   command: curl -u admin:admin -o git-local-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
+    #   become: yes
 
     - name: Extract the file
       ansible.builtin.unarchive:
