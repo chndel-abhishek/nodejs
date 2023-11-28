@@ -1,4 +1,4 @@
 [private_users]
 
-server1  ansible_host=44.221.41.145
+server1  ansible_host=44.221.41.145 ansible_user=node-1
 
