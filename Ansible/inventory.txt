@@ -1,16 +1,4 @@
 [private_users]
 
 server1  ansible_host=10.182.0.5 ansible_user=abhishekchandel1411 ansible_ssh_pass=admin
-tasks:
-  - name: Download Artifacts
-    command: curl -u "{{ lookup('env', 'NEXUS_USERNAME') }}:{{ lookup('env', 'NEXUS_PASSWORD') }}" -o git-local-2.0.0.tgz "http://34.83.246.129:8081/repository/npm-hosted/git-local/-/git-local-2.0.0.tgz"
-    become: yes
-credentialsBinding([credentialsId: 'your-nexus-credentials-id', usernameVariable: 'NEXUS_USERNAME', passwordVariable: 'NEXUS_PASSWORD']) {
-    stage('Nodejs Deploy') {
-        steps {
-            sh "cd Ansible && ansible-playbook -i ./inventory.txt ${params.GIT_BRANCH}-playbook.yaml"
-        }
-    }
-}
-[my_servers]
-your_server_ip_or_hostname ansible_ssh_private_key_file=/path/to/your/private_key.pem
+
