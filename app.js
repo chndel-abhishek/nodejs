@@ -1,19 +1,13 @@
-const http = require('http');
+var http = require('http');
+//create a server object:
+var port = process.env.PORT || 6443;
+var msg = process.env.MSG
 
-const port = process.env.PORT || 6443;
+http.createServer(function (req, res) {
+    res.write("This is "); //write a response to the client
+    res.write(' Version: v2')
+    res.end(); //end the response
+}).listen(port); //the server object listens on port 8080
 
-const server = http.createServer((req, res) => {
-    // Ensure that your application is serving the correct response
-    res.write("This is Version: v2");
-    res.end();
-
-    // Log the incoming request for testing purposes
-    console.log(`Received request for: ${req.url}`);
-});
-
-// Trust the first proxy (in this case, Nginx)
-server.set('trust proxy', 1);
-
-server.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+// Console will print the message
+console.log('Server running');
